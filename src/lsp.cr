@@ -1,12 +1,7 @@
 require "./lsp/*"
 
 module Lsp
-  class TranslateToJs < Transformer
-    def transform(node : Var)
-      Name.new("#{node.name} =")
-    end
-  end
-
-  nodes = Parser.parse "($add 10 20 ($addere duo tribus))"
-  pp nodes.transform(TranslateToJs.new)
+  nodes = Parser.parse "($print test ($add 39 333) 10)"
+  pp nodes
+  Runner.new(nodes)
 end
