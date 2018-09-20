@@ -1,0 +1,16 @@
+expression
+	: '(' var args ')'
+
+var
+	: '$' name
+
+name
+	: \w+
+
+args
+	: arg
+	| arg arg
+
+arg
+	: expression
+	| name
