@@ -22,7 +22,10 @@ class Lsp::Parser < Lsp::Lexer
 
     expect :")"
 
-    Block.new args, name
+    exps = [] of ASTNode
+    exps << args
+
+    Block.new exps, name
   end
 
   def parse_args(exps = [] of ASTNode)

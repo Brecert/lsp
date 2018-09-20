@@ -8,36 +8,11 @@ module Lsp::AST
   class Nop < ASTNode
   end
 
-  class Expressions < ASTNode
-    property expressions : Array(ASTNode)
-    property name : ASTNode
-
-    # def self.from(obj : Nil, name : ASTNode)
-    #   Nop.new
-    # end
-
-    def self.from(obj : Array, name : ASTNode)
-      case obj.size
-      when 0
-        Nop.new
-      else
-        new obj, name
-      end
-    end
-
-    def self.from(obj : ASTNode, name : ASTNode)
-      new [obj], name
-    end
-
-    def initialize(@expressions = [] of ASTNode, @name : ASTNode = Nop.new)
-    end
-  end
-
   class Block < ASTNode
     property name : ASTNode
-    property value : ASTNode
+    property expressions : Array(ASTNode)
 
-    def initialize(@value, @name)
+    def initialize(@expressions : Array(ASTNode), @name)
     end
   end
 
