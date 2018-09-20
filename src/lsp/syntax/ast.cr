@@ -1,4 +1,4 @@
-module Lsp::AST
+module Lsp
   abstract class ASTNode
     def nop?
       self.is_a?(Nop)
@@ -27,9 +27,9 @@ module Lsp::AST
   end
 
   class Arg < ASTNode
-    property value : Array(ASTNode)
+    property values : Array(ASTNode)
 
-    def initialize(@value = [] of ASTNode)
+    def initialize(@values = [] of ASTNode)
     end
   end
 end

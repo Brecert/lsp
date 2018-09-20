@@ -1,6 +1,4 @@
 class Lsp::Parser < Lsp::Lexer
-  include AST
-
   def self.parse(string)
     new(string).parse
   end
